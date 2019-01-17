@@ -6,21 +6,9 @@
 <body>
 
 <?php
-		// Credeciais base de datos
-		$servername = "localhost";
-		$username = "alan";
-		$password = "turing";
+	include './Database.php';
+
 		
-		// Crear conexion MySQL
-	$conn = mysqli_connect($servername, $username, $password, "ENIGMA");
-
-	// Comprobar conexión, si flla mostrar error
-	if (!$conn) {
-		die('<p>Fallo la conexión con la base de datos: </p>' . mysqli_connect_erorr());
-	}
-	
-	echo '<p>Conexión ¡OK!</p>';
-
 		//Crear novo hábito(resposta ao POST)|		
 
 		if (isset($_POST["nome"])) {
@@ -45,13 +33,13 @@
 		$habitos = mysqli_query($conn, $lectura);
 		echo "Número de hábitos: " . mysqli_num_rows($habitos) . "<br>";
 		while($hab = mysqli_fetch_array($habitos)){
-			echo $hab['ID'] . " - " . $hab ['Nome'] . "<a href=\"/habitos.php?borrar=" . $hab['ID'] . "\"><i class=\"fas fa-dumpster\"></i></a><br>";
+			echo $hab['ID'] . " - " . $hab ['Nome'] . "<a href=\"habitos.php?borrar=" . $hab['ID'] . "\"><i class=\"fas fa-dumpster\"></i></a><br>";
 		}
 	?>
 	
 	<p>Se precisas axuda, le <a href="https://habitualmente.com/pasos-para-cambiar-de-habitos/">isto</a>.</p>
 
-	<form name="habito" method="post" action="/habitos.php">
+	<form name="habito" method="post" action="habitos.php">
 		<input type="text" id="nome" name="nome">
 		<button id="gardar" type="submit">Gardar</button>
 	</form>
