@@ -11,6 +11,5 @@
 	if (!$conn) {
 		die('<p>Fallo la conexión con la base de datos: </p>' . mysqli_connect_erorr());
 	}
-	
-	echo '<p>Conexión ¡OK!</p>';
+
 ?>
