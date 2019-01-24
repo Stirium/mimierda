@@ -15,11 +15,15 @@
 	<table class="table">
 		<tr>
 			<td></td>
-			<td>Luns</td>
-			<td>Martes</td>
-			<td>Mércores</td>
-			<td>Xoves</td>
-			<td>Vernes</td>
+			<?php
+				$hoxe = mktime(0,0,0);
+				for
+ ($dias=4;$diasAntes>=0;$dias=$dias--) {
+				"<td>"; echo "<td>" . date('j/n/Y', 
+$hoxe - $dias*24*60*60) . "</td>";
+	}
+				
+			?>		
 		</tr>
 	<?php
 		while ($hab = mysqli_fetch_array($habitos)) {
